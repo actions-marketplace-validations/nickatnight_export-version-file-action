@@ -1,0 +1,35 @@
+name: test-action
+
+on:
+  release:
+    types: [released]
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+
+jobs:
+  write-version-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # for all history for all branches and tags
+      - name: write version
+        if: ${{ github.event_name == 'release' }}
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # this is added for you by default
+      - name: test output
+        if: success()
+        shell: bash
+        run: |
+          echo ${{ github.event_name }}
+          git pull origin master
+          export APP_VERSION=`git describe --tags --always --first-parent --abbrev=0`
+          export FILE="$GITHUB_WORKSPACE/__version__"
+          FILEOUTPUT=`cat $FILE`
+
+          [[ -f $FILE ]] || exit 1

@@ -1,0 +1,17 @@
+name: "export-version-file-action"
+description: "Export a __version__ file to project"
+inputs:
+  branch:  # name of branch
+    description: "Name of branch"
+    required: false
+    default: "master"
+  filename:  # name of branch
+    description: "Name of file to write to"
+    required: false
+    default: "__version__"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: 'arrow-down'
+  color: 'purple'
