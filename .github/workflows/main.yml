@@ -3,11 +3,11 @@ name: test-action
 on:
   release:
     types: [released]
-  # push:
-  #   branches:
-  #     - master
-  #   tags:
-  #     - v*
+  push:
+    branches:
+      - master
+    tags:
+      - v*
 
 jobs:
   write-version-file:
