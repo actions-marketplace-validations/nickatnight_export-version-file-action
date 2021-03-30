@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/nickatnight/export-version-file-action/actions"><img alt="GitHub Actions status" src="https://github.com/nickatnight/export-version-file-action/workflows/test-action/badge.svg"></a>
+  <!-- <a href="https://github.com/nickatnight/export-version-file-action/actions"><img alt="GitHub Actions status" src="https://github.com/nickatnight/export-version-file-action/workflows/test-action/badge.svg"></a> -->
   <a href="https://github.com/nickatnight/export-version-file-action/releases"><img alt="Release Status" src="https://img.shields.io/github/v/release/nickatnight/export-version-file-action"></a>
 </p>
 
 # :envelope_with_arrow: export-version-file-action
 
-A GitHub action to write a "version" file to project root
+A GitHub action to write a "version" file to project root by fetching the latest tag and writing it to file.
 
 ## Usage
 ```yaml
