@@ -3,11 +3,11 @@ name: test-action
 on:
   release:
     types: [released]
-  push:
-    branches:
-      - master
-    tags:
-      - v*
+  # push:
+  #   branches:
+  #     - master
+  #   tags:
+  #     - v*
 
 jobs:
   write-version-file:
@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # this is added for you by default
       - name: test output
-        if: success()
+        if: ${{ github.event_name == 'release' }}
         shell: bash
         run: |
           echo ${{ github.event_name }}
