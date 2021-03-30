@@ -8,6 +8,9 @@
 A GitHub action to write a "version" file to project root by fetching the latest tag and writing it to file.
 
 ## Usage
+
+### Export a new file which contains the lastest tag version...triggered by a new release
+
 ```yaml
 name: export version file
 
@@ -27,6 +30,18 @@ jobs:
           branch: "main"            # optional...defaults to 'master'
           filename: "tag"           # optional...defaults to '__version__'
 ```
+
+## Supported Parameters
+
+| Parameter               | Description                                                | Default       |
+| ----------------------- | ---------------------------------------------------------- | ------------- |
+| `branch`                | Which branch do we want to update file on?                 |    `master`   |
+| `filename`              | Name of file we are updating/creating                      | `__version__` |
+
+
+## TODO
+- add path input to export path to desired location
+- add different test cases
 
 ## Acknowledgements
 - [halik](https://github.com/ironhalik) - for README template and alpine hacks
