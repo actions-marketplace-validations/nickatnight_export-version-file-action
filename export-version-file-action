@@ -18,7 +18,7 @@ GITHUB_EVENT_PATH = os.getenv("GITHUB_EVENT_PATH")                  # prodvided 
 class ExportVersionFileAction:
     def __init__(self) -> NoReturn:
         if not GITHUB_TOKEN:
-            print(f"Missing GITHUB_TOKEN")
+            print("Missing GITHUB_TOKEN")
             sys.exit(0)
 
         self.github = Github(GITHUB_TOKEN)
